@@ -1,30 +1,74 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
-    <style>
-        .center-content {
-            text-align: center;
-            margin: 0 auto;
-            max-width: 600px; /* Adjust the max-width as per your design */
-        }
 
-        .center-content h1 {
-            color: #333; /* Adjust the color as needed */
-        }
-
-        .center-content p {
-            color: #666; /* Adjust the color as needed */
-        }
-    </style>
-
-    <div class="center-content">
-        <h1>Welcome to Our Website!</h1>
-        <p>
-            Thank you for visiting our site. We are dedicated to providing valuable information and services.
-        </p>
-        <p>
-            Explore our pages to discover a wide range of topics, services, and resources designed to meet your needs.
-        </p>
+<style>
+    section {
+        text-align: justify;
+        margin: 40px;
+    }
+    header {
+        text-align: center;
+    }
+    footer {
+        text-align: justify;
+        margin: 40px;
+    }
+</style>
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
-<br><br><br><br><br><br><br><br><br><br><<br>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static "/wallpaperflare.com_wallpaper.jpg" %}" height="500px" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static "/983829.png" %}" height="500px" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static "/983848.jpg" %}" height="500px" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <br><br>
+<header>
+    <h1>Welcome to PythonBlog!</h1>
+</header>
+
+<section>
+    <h2>Hey there! I'm Syam, and I'm thrilled to have you here in my little corner of the internet dedicated to all things Python.</h2>
+
+    <h3>Why Python?</h3>
+    <p>Ever since I stumbled upon Python during my college years, I've been hooked. The simplicity, readability, and versatility of the language are what captured my heart. Whether I'm working on web development, data analysis, or machine learning projects, Python is my go-to companion in the coding realm.</p>
+
+    <h3>About Me:</h3>
+    <p>I'm a Junior Python Developer with a background in Python Web Development. My journey in the world of Python has been filled with fascinating challenges and endless learning opportunities. Through this blog, I aim to share my experiences, insights, and passion for Python with you.</p>
+
+    <h3>Let's Connect:</h3>
+    <p>I'm not just a face behind the screen; I'm a part of the vibrant Python community. Feel free to connect with me on Reddit, join the conversation, and share your thoughts. Your insights and questions inspire the content here.</p>
+
+    <h3>Future Adventures:</h3>
+    <p>Exciting things are on the horizon for PythonBlog. I have some fantastic tutorials, interviews with industry experts, and maybe even a podcast in the works. Stay tuned for a journey of continuous learning and exploration in the Python world.</p>
+
+    <h3>Get in Touch:</h3>
+    <p>Have a burning Python question or just want to say hi? Reach out to me at <a href="mailto:[Your Email Address]">syamjith0505@gmail.com</a>. I'd love to hear from you and help in any way I can.</p>
+</section>
+
+<footer>
+    <p>Thanks for being a part of this Python adventure with me. Let's code, learn, and grow together!</p>
+    <p>Happy coding,<br>Syam</p>
+</footer>
+
 {% endblock %}
 

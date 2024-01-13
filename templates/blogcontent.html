@@ -4,6 +4,66 @@
 
 <div class="container">
     <h1>{{blog.title}}</h1>
-    <p>{{blog.content}}</p>
-    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <p>{{blog.content|safe}}</p>
+
+</div>
+<section id="comment" class="my-5">
+
+<div class="container py-5" >
+    <h1>Comments</h1>
+    <form action="{% url 'comment' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="blogid" value="{{blog.id}}" hidden>
+        <textarea name="comment" id="" cols="70" rows="3"></textarea>
+        <br>
+        <button class="btn btn-primary" type="submit">Submit</button>
+     </form>
+     <br><br>
+     {% for comments in comment  %}
+    <div class="card w-75 mb-3">
+        <div class="card-body">
+          
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+              </svg><strong>{{comments.name}}</strong>
+          <p class="card-text mt-3">{{comments.comment}}</p>
+          <p>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample{{comments.id}}" aria-expanded="false" aria-controls="collapseExample">
+             Reply
+            </button>
+          </p>
+          <div class="collapse" id="collapseExample{{comments.id}}">
+            <div class="card card-body">
+             <form action="{% url 'reply' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="commentparent" value="{{comments.id}}">
+                <input type="hidden" name="blogid" value="{{blog.id}}">
+                <textarea name="reply" id="" cols="70" rows="3"></textarea>
+                <button class="btn btn-primary" type="submit">Submit</button>
+             </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+</div>
+    {% for rep in reply  %}
+    {% if  rep.commentparent.id == comments.id %}
+    <div class="card w-75 mb-3 m-auto">
+        <div class="card-body">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+              </svg>User
+          <p class="card-text mt-3">{{rep.reply}}</p>
+          
+          
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+</section>
+ <br><br><br><br><br><br><br><br><br><br><br><br>
 {% endblock  %}

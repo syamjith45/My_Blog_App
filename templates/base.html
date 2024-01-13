@@ -16,9 +16,12 @@
     </style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-light">
+    {% include "messages.html" %}
+    <nav class="navbar navbar-expand-lg bg-info">
+
+
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">SYAM BLOG</a>
+          <a class="navbar-brand" href="#">PYTHON BLOG</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -33,13 +36,18 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'about' %}">Contact</a>
               </li>
-              
+              {% if user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'contact' %}">SignUp</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Logout</a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'signup' %}">SignUp</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'contact' %}">Login</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
               </li>
+              {% endif %}
             </ul>
             <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -48,6 +56,7 @@
           </div>
         </div>
       </nav>
+    
       {% block content %}
 
 
@@ -60,12 +69,11 @@
         <footer class="py-3 my-4">
           <ul class="nav justify-content-center border-bottom pb-3 mb-3">
             <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+      
             <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
           </ul>
-          <p class="text-center text-muted">&copy; 2021 Company, Inc</p>
+          <p class="text-center text-muted">&copy; 2024, Syam. All rights reserved. | PythonBlog - Exploring the World of Python</p>
+
         </footer>
       </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>

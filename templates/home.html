@@ -9,13 +9,13 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="https://source.unsplash.com/featured?technology" height="500px" class="d-block w-100" alt="...">
+            <img src="{% static "/wallpaperflare.com_wallpaper.jpg" %}" height="500px" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="https://source.unsplash.com/featured?technology" height="500px" class="d-block w-100" alt="...">
+            <img src="{% static "/983829.png" %}" height="500px" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="https://source.unsplash.com/featured?technology" height="500px" class="d-block w-100" alt="...">
+            <img src="{% static "/983848.jpg" %}" height="500px" class="d-block w-100" alt="...">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -29,10 +29,10 @@
       </div>
 
       {% comment %} about {% endcomment %}
-      <div class="container py-5">
+      {% comment %} <div class="container py-5">
         <h1 class="text-center">About</h1>
         <p class="text-center">{% lorem 1 b random %} </p>
-      </div>
+      </div> {% endcomment %}
 
       <div class="blog">
         <div class="container">
@@ -42,7 +42,7 @@
                 <div class="col-md-6">
                   <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static">
-                      <strong class="d-inline-block mb-2 text-primary">World</strong>
+                      {% comment %} <strong class="d-inline-block mb-2 text-primary">World</strong> {% endcomment %}
                       <h3 class="mb-0">{{i.title}}</h3>
                       <div class="mb-1 text-muted">{{i.created_at}}</div>
                       <p class="card-text mb-auto">{{i.short_desc}}</p>
